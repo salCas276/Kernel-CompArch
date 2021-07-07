@@ -1,0 +1,17 @@
+{
+    "files.associations": {
+        "api.h": "c",
+        "clockdriver.h": "c",
+        "kernelaccesor.h": "c",
+        "screenmanager.h": "c",
+        "videodriver.h": "c",
+        "moduleloader.h": "c",
+        "register.h": "c",
+        "interrupts.h": "c",
+        "idtloader.h": "c",
+        "naiveconsole.h": "c",
+        "memory.h": "c",
+        "graphicscreenmanager.h": "c",
+        "commandmanager.h": "c"
+    }
+}
