@@ -4,5 +4,6 @@
 char getCharFromKeyDown();
 void updateBuffer();
 char getCharInt();
+void loadRegs(long*);
 
 #endif

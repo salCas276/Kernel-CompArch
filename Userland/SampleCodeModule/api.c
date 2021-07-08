@@ -24,6 +24,10 @@ void print(char * str){
     write(i,str);
 }
 
+void getRegs(long * buffer){
+	readRegs(buffer);
+}
+
 int getHour(){
     return getFromRtc(0x04);
 }

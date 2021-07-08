@@ -9,6 +9,7 @@ GLOBAL getMem
 GLOBAL getFromRTC
 GLOBAL backupRSP
 GLOBAL resetRSP
+GLOBAL getRegs
 
 
 section .text
@@ -159,11 +160,19 @@ _loop:
 	pop rax
 	ret
 
-
-
-
-
-
-
-
-
+getRegs:
+	push rbp
+	mov rbp, rsp
+	mov rcx, 15
+	mov rdx, rbp
+	mov rdi, rbp
+	add rdi, 4
+_loop2:
+	add rdx, 4
+	mov r8, [rdx]
+	mov [rdi], r8
+	dec rcx
+	jnz _loop2	
+	mov rsp, rbp
+	pop rbp
+	

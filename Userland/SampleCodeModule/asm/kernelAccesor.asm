@@ -4,6 +4,7 @@ GLOBAL getFromRtc
 GLOBAL regis
 GLOBAL readMemAsm
 GLOBAL changeScreenAsm 
+GLOBAL readRegs
     	
 ;;write con dos parametros : numero de salida , cadena a imprimir 
 ;;debe hacer la int 80 para ejecutar la interrupcion
@@ -22,12 +23,17 @@ read :
 	mov rdi , 1 
 	int 80h 
 	ret 
-	
+
 getFromRtc :
 	mov rsi , rdi
 	mov rdi , 2 
 	int 80h
 	ret
+
+readRegs:
+	mov rsi, rdi
+	mov rdi, 3
+	int 80h
 
 
 

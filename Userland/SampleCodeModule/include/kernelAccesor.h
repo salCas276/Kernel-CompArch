@@ -13,3 +13,5 @@ void readMemAsm(int * mem , long * dir);
 void regis();
 
 void changeScreenAsm();
+
+void readRegs(long*);

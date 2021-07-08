@@ -1,11 +1,13 @@
 #include "commandManager.h"
 #include "include/api.h"
+//#include "../../Kernel/asm/libasm.asm"
 
 
 #define MAX_PARAMS 20
 #define BUFFER_SPACE 256 //Toma 1 caracter menos, para poder poner el \n
 #define NUMBER_REGS 16
 #define NUMBER_MEM 5
+
 
 
 
@@ -273,6 +275,7 @@ static void printMem(){
   }
 }
 
+//Va a faltar rsp que se me escapo
   void printRegs(long long * regs){
    char * names[]={"r15","r14","r13","r12","r11","r10","r9","r8","rsi",
     "rdi","rbp","rdx","rcx","rbx","rax", "rsp"};  

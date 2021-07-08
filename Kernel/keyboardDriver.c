@@ -1,4 +1,5 @@
 #include "./include/keyboardDriver.h"
+void getRegs(long*);
 int getcharacterC();
 
 /*transform the data that was received by keyboard to ascii character*/
@@ -13,8 +14,14 @@ static const int keyTable[] = {
 };
 
 #define DIM 50
+#define REGS 15
 int dim = 0 ; // slot donde debe guardarse la tecla recibida.
 char buffer[DIM];
+long regBuffer[REGS]; //buffer para guardar los valores de los registros
+
+void loadRegs(long* auxBuffer){
+	for(int i=0; i<REGS; i++) auxBuffer[i] = regBuffer[i];
+}
 
 char getCharFromKeyDown() {
     int character = getcharacterC(); // implementado en libasm 
@@ -26,9 +33,13 @@ char getCharFromKeyDown() {
 
 //agrega en la ultima posicion del buffer si es que es una letra.
 void updateBuffer(){
+	char character = getCharFromKeyDown();
+	if(character == 9){
+		getRegs(regBuffer); //Falta agregar el 9 a la matriz de teclado, este representa la tecla "tab orizontal"
+		return;
+		}
 	if(dim == DIM ) //si se llena el buffer , pierdo la tecla.
 		return;
-	char character = getCharFromKeyDown();
 	if(character == 0 )
 		return;
 	else 
@@ -47,3 +58,5 @@ char getCharInt(){
 	buffer[dim+1]=0;//necesario para no recuperar una letra que no fue tecleada. 
 	return character;
 }
+
+
