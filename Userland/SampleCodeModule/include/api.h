@@ -26,4 +26,6 @@ void deleteChar();
 
 void changeScreen();
 
+void getRegs(long*);
+
 

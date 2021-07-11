@@ -31,7 +31,7 @@ getFromRtc :
 	ret
 
 readRegs:
-	mov rsi, rdi
+	mov rdx, rdi
 	mov rdi, 3
 	int 80h
 

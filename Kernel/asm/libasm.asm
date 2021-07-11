@@ -144,9 +144,9 @@ getMem :
 
 	mov rcx , 4
 _loop:
-	mov eax, dword[rsi]
+	mov eax, [rsi]
     mov [rdi] , eax
-	add rdi , 4 
+	add rdi , 4
 	add rsi , 4 
 	dec rcx 
 	cmp rcx , 0 
@@ -163,16 +163,19 @@ _loop:
 getRegs:
 	push rbp
 	mov rbp, rsp
-	mov rcx, 15
+	mov rcx, 16
 	mov rdx, rbp
-	mov rdi, rbp
-	add rdi, 4
+	add rdx, 104
 _loop2:
-	add rdx, 4
 	mov r8, [rdx]
-	mov [rdi], r8
+	mov rax, r8
+	mov qword [rdi], rax
+	add rdi, 8
+	add rdx, 8
 	dec rcx
-	jnz _loop2	
+	cmp rcx, 0
+	jg _loop2	
 	mov rsp, rbp
 	pop rbp
+	ret
 	

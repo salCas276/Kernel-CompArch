@@ -1,6 +1,5 @@
 #include "commandManager.h"
 #include "include/api.h"
-//#include "../../Kernel/asm/libasm.asm"
 
 
 #define MAX_PARAMS 20
@@ -48,7 +47,7 @@ typedef struct command {
 static char *param[MAX_PARAMS];
 static int paramNumber; //Indica que cantidad de parametros se encontraron
 
-static command commands[] = { {"echo", -1, echo } , {"time", 0, printTime} , {"help", 0, help}, {"inforeg", 0, regis}, {"printmem", 1, printMem}, {"div", 2, div}}; 
+static command commands[] = { {"echo", -1, echo } , {"time", 0, printTime} , {"help", 0, help}, {"inforeg", 0, printRegs}, {"printmem", 1, printMem}, {"div", 2, div}}; 
 static int qCommands = 6; //Si se pone un numero mayor que la cantidad real al buscar un comando inexistente tirara seg fault
 
 static char * errorMsg[5]={"\nCommand not found","\nInvalid number of parameters","\nInvalid argument","\nBuffer overflow", "Invalid Parameter"};
@@ -275,12 +274,13 @@ static void printMem(){
   }
 }
 
-//Va a faltar rsp que se me escapo
-  void printRegs(long long * regs){
+void printRegs(){
    char * names[]={"r15","r14","r13","r12","r11","r10","r9","r8","rsi",
     "rdi","rbp","rdx","rcx","rbx","rax", "rsp"};  
-  char buffer[65];
-  for(int i=0; i<NUMBER_REGS; i++){
+  char buffer[100];
+  long regs[16];
+  getRegs(regs);
+  for(int i=0; i<16; i++){
     twosComplement(regs[i], buffer);
     print(names[i]);
     print(" : ");
@@ -412,10 +412,10 @@ static int isHex(char* str){
 }	
 
 static int twosComplement(long long n, char* buffer){
-  int sgn = (0x80000000 & n) ? 1 : 0;
+  int sgn = (0x8000000000000000 & n) ? 1 : 0;
   if(sgn){
-	int aux = (n & 0xf0000000) >> 28; //
-	n = 0x7fffffff & ( 0x10000000 | n);
+	int aux = (n & 0xf000000000000000) >> 60; //
+	n = 0x7fffffffffffffff & ( 0x1000000000000000 | n);
 	uintToBase(n, buffer, 16);
 	char s[2];
 	uintToBase(aux, s, 16);

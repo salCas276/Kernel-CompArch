@@ -75,11 +75,8 @@ SECTION .text
 %macro irqHandlerMaster 1
 	pushState
 	
-	sub rsp, 8
-	mov qword [rsp], 1234567887654321h
 	mov rdi, %1 ; pasaje de parametro
 	call irqDispatcher
-	add rsp, 8
 
 	; signal pic EOI (End of Interrupt)
 	mov al, 20h

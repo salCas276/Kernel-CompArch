@@ -17,7 +17,7 @@ int (*routines[LENGTH])(int, void*)={writeSys,readSys,getFromRtcSys, readRegsSys
 // 1 -> read 
 // 2 -> getFromRtc
 // 3 -> readRegs
-int SyscallsManage(int id ,int fd ,  char * string){
+int SyscallsManage(int id ,int fd ,  void * string){
     return routines[id](fd,string);
 }
 

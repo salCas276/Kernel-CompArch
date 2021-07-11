@@ -14,7 +14,7 @@ static const int keyTable[] = {
 };
 
 #define DIM 50
-#define REGS 15
+#define REGS 16
 int dim = 0 ; // slot donde debe guardarse la tecla recibida.
 char buffer[DIM];
 long regBuffer[REGS]; //buffer para guardar los valores de los registros
@@ -34,8 +34,8 @@ char getCharFromKeyDown() {
 //agrega en la ultima posicion del buffer si es que es una letra.
 void updateBuffer(){
 	char character = getCharFromKeyDown();
-	if(character == 9){
-		getRegs(regBuffer); //Falta agregar el 9 a la matriz de teclado, este representa la tecla "tab orizontal"
+	if(character == 'a'){
+		getRegs(regBuffer); //La tecla 'a' la estoy usando de prueba, despues hay que cambiarla
 		return;
 		}
 	if(dim == DIM ) //si se llena el buffer , pierdo la tecla.
