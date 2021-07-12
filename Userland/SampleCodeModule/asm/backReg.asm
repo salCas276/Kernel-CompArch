@@ -1,4 +1,5 @@
 GLOBAL regis
+GLOBAL opcode
 extern printRegs 
 
 %macro pushState 0
@@ -46,5 +47,12 @@ regis:
     popState
     ret
 
+
+opcode:
+	mov rax, 0x1234
+	push rax
+	ret
+ 
+	
 
 

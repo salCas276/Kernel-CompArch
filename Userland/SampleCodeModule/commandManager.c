@@ -8,8 +8,8 @@
 #define NUMBER_MEM 5
 
 
-
-
+void opcode();
+static void testOpcode();
 static void echo();
 static void help();
 static void printTime();
@@ -47,8 +47,8 @@ typedef struct command {
 static char *param[MAX_PARAMS];
 static int paramNumber; //Indica que cantidad de parametros se encontraron
 
-static command commands[] = { {"echo", -1, echo } , {"time", 0, printTime} , {"help", 0, help}, {"inforeg", 0, printRegs}, {"printmem", 1, printMem}, {"div", 2, div}}; 
-static int qCommands = 6; //Si se pone un numero mayor que la cantidad real al buscar un comando inexistente tirara seg fault
+static command commands[] = { {"echo", -1, echo } , {"time", 0, printTime} , {"help", 0, help}, {"inforeg", 0, printRegs}, {"printmem", 1, printMem}, {"div", 2, div}, {"opcode", 0, testOpcode}}; 
+static int qCommands = 7; //Si se pone un numero mayor que la cantidad real al buscar un comando inexistente tirara seg fault
 
 static char * errorMsg[5]={"\nCommand not found","\nInvalid number of parameters","\nInvalid argument","\nBuffer overflow", "Invalid Parameter"};
 
@@ -287,6 +287,10 @@ void printRegs(){
     print(buffer);
     if(i<NUMBER_REGS-1) putChar('\n');
   }
+}
+
+void testOpcode(){
+	opcode();
 }
 
 /*
