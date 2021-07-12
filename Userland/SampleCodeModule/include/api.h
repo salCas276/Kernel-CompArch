@@ -20,7 +20,7 @@ int getDay();
 
 void BackupReg(long long * reg);
 
-void readMem(int * mem, long * dir);
+void readMem(long * mem, long * dir);
 
 void deleteChar();
 

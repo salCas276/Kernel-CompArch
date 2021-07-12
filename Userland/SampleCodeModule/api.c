@@ -45,7 +45,7 @@ int getDay(){
 }
 
 
-void readMem(int * mem , long * dir){
+void readMem(long * mem , long * dir){
     readMemAsm(mem,dir);
 }
 

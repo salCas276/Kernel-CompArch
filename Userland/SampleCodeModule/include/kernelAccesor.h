@@ -8,7 +8,7 @@ void splitScreen(int count);
 
  int getFromRtc(int selector);
 
-void readMemAsm(int * mem , long * dir);
+void readMemAsm(long * mem , long * dir);
 
 void regis();
 
