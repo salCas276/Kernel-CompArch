@@ -139,25 +139,27 @@ getcharacterC:
 ;; en rsi char * con una direccion de memoria valida 
 getMem : 
 
-	push rax 
-	push rcx 
+	;;push rax 
+	;;push rcx 
 
 	mov rcx , 4
 _loop:
-	mov eax, [rsi]
-    mov [rdi] , eax
-	add rdi , 4
-	add rsi , 4 
+	mov rax, 0
+	mov [rdi], rax
+	mov al, [rsi]
+    mov [rdi] , al
+	add rdi , 8
+	add rsi , 1 
 	dec rcx 
 	cmp rcx , 0 
 	jge _loop
 
 	
-	sub rdi , 4 
-	sub rsi , 4
+	;;sub rdi , 8 
+	;;sub rsi , 8
 
-	pop rcx 
-	pop rax
+	;;pop rcx 
+	;;pop rax
 	ret
 
 getRegs:

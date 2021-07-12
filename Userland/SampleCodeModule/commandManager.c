@@ -264,10 +264,10 @@ static void printMem(){
 			return;
 	}
   long * dir = (long *)hexToInt(param[1]);
-  int mem[NUMBER_MEM];
+  long mem[5];
   readMem(mem, dir);
-  char buffer[10];
-  for(int i=0;i<NUMBER_MEM; i++){
+  char buffer[100];
+  for(int i=0;i<5; i++){
     twosComplement(mem[i], buffer);
     print(buffer);
     if(i<NUMBER_MEM-1) putChar('\n');
@@ -430,3 +430,4 @@ static int twosComplement(long long n, char* buffer){
   }
   return sgn;
 }
+
