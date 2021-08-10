@@ -61,9 +61,6 @@ static char * errorMsg[5]={"\nCommand not found","\nInvalid number of parameters
 
 void initializeShells(){
   print("?>");
-  changeScreen();
-  print("?>");
-  changeScreen();
   while(1){
     getCommand();
   }

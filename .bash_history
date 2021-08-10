@@ -202,3 +202,24 @@ gdb
 gdb
 gdb
 exit
+ls
+cd Toolchain 
+make all 
+exit
+cd Toolchain 
+dcom make all 
+make all
+exit
+ls
+cd Toolchain 
+make all
+cd ..
+cd Makefile
+cd ..
+exi
+exit
+cd Toolchain 
+make all
+make clean 
+make all
+exit

@@ -7,8 +7,7 @@
 #include <keyboardDriver.h>
 #include <interrupts.h>
 #include <lib.h>
-
-#include  "include/graphicScreenManager.h"
+#include  "include/screenManager.h"
 
 static long stackpointer; 
 
@@ -107,40 +106,13 @@ int main()
 	ncNewline();
 	ncPrint("  Calling the sample code module returned: ");
 	
-	clearAllScreens(); 
+	int styles[] = {0xF0};
+	setManyScreens(1, styles); 
+
 	
-
-    fontUp(); 
-    fontUp();
-    fontUp(); 
-
-    resetStyle(RED, WHITE); 
-
-    nextScreen(); 
-
-    resetStyle(BLACK, RED); 
-
-    fontUp(); 
-    fontUp(); 
-
-	nextScreen();
-
 	stackpointer = backupRSP()+8;
 
 	((EntryPoint)sampleCodeModuleAddress)();
-	// ncPrintHex();
-	// ncNewline();
-	// ncNewline();
-
-	// ncPrint("  Sample data module at 0x");
-	// ncPrintHex((uint64_t)sampleDataModuleAddress);
-	// ncNewline();
-	// ncPrint("  Sample data module contents: ");
-	// ncPrint((char*)sampleDataModuleAddress);
-	// ncNewline();
-	// ncClear();
-	
-	
 
 
 	return 0;

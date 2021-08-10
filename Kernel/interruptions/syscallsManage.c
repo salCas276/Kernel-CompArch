@@ -1,5 +1,5 @@
 #include <stdint.h>
-#include "../include/graphicScreenManager.h"
+#include "../include/screenManager.h"
 #include "../include/keyboardDriver.h"
 #include "../include/clockDriver.h"
 #define LENGTH 4

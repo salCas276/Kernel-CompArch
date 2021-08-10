@@ -1,6 +1,6 @@
 #include <stdint.h>
 #include "../include/memory.h"
-#include "../include/graphicScreenManager.h"
+#include "../include/screenManager.h"
 
 
 void MemoryManage(int * reg,long * dir){

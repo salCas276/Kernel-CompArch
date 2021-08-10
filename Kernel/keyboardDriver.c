@@ -34,7 +34,7 @@ char getCharFromKeyDown() {
 //agrega en la ultima posicion del buffer si es que es una letra.
 void updateBuffer(){
 	char character = getCharFromKeyDown();
-	if(character == 'a'){
+	if(character == '{'){
 		getRegs(regBuffer); //La tecla 'a' la estoy usando de prueba, despues hay que cambiarla
 		return;
 		}

@@ -57,8 +57,7 @@ clearcs:
 	int 0x14
 
 ; Make sure the screen is set to 80x25 color text mode
-; lo cambio a modo grafico
-	mov ax, 0x0013			; Set to normal (80x25 text) video mode
+	mov ax, 0x0003			; Set to normal (80x25 text) video mode
 	int 0x10
 
 ; Disable blinking

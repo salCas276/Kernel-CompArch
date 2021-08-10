@@ -1,7 +1,6 @@
 
 #define ZERO_EXCEPTION_ID 0
 #define OPCODE_EXCEPTION_ID 6
-#include "../include/graphicScreenManager.h"
 #include "../include/keyboardDriver.h"
 void printRegister(long long * reg);
 int twosComplement(long long, char*);
